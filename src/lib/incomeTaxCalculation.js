@@ -1,32 +1,4 @@
-// **************************************** //
-// Hardcoded Data
-// **************************************** //
-
-const employeeInfo = [
-
-    {
-        id: 457613,
-        firstName: 'David', 
-        lastName: 'Rudd', 
-        annualSalary: 60050, 
-        super: 0.09,
-        paymentStartDate: 2020-03-01,
-        paymentEndDate: 2020-03-31
-    },
-    {
-        id: 258612,
-        firstName: 'Ryan', 
-        lastName: 'Chen', 
-        annualSalary: 120000, 
-        super: 0.10,
-        paymentStartDate: 2020-03-01,
-        paymentEndDate: 2020-03-31
-    }
-] // employeeInfo[]
-
-// PSEUDOCODE //
-// Create an array of objects to hold the employee information
-// This information will be referred to by other functions
+import employeeInfo from "./employeeInfo";
 
 function incomeTaxCalc(input){
     
@@ -60,7 +32,7 @@ function incomeTaxCalc(input){
                 let taxToPay = ((salary - bracket.min)*bracket.rate) + bracket.fee;
 
                 // rounds up value
-                taxToPay = Math.ceil(taxToPay)
+                taxToPay = Math.ceil(taxToPay)/12
                 console.log('*****************************');
                 console.log(`${name}'s income tax balance is $${taxToPay}`);
                 console.log('-----------------------------');
