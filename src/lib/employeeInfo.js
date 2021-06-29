@@ -14,8 +14,8 @@ const employeeInfo = [
         lastName: 'Rudd', 
         annualSalary: 60050, 
         super: 0.09,
-        paymentStartDate: 2020-03-01,
-        paymentEndDate: 2020-03-31
+        paymentStartDate: '2020:03:01',
+        paymentEndDate: '2020:03:31'
     },
     {
         id: 258612,
