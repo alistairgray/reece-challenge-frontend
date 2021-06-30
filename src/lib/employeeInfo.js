@@ -23,8 +23,8 @@ const employeeInfo = [
         lastName: 'Chen', 
         annualSalary: 120000, 
         super: 0.10,
-        paymentStartDate: 2020-03-01,
-        paymentEndDate: 2020-03-31
+        paymentStartDate: '2020:03:01',
+        paymentEndDate: '2020:03:01'
     }
 ] // employeeInfo[]
 

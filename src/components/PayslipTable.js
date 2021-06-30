@@ -10,6 +10,18 @@ const PayslipTable = () => {
     return(
         <div>
             <h2>{name}</h2>
+            <div id="outer-table">
+                <ul className="invoice-list">
+                    {employeeInfo.map((user) => {
+                        return (    
+                            <li key = {user.id}className="invoice-list-details">
+                                <p>{user.firstName}</p>
+                                <p>{user.lastName}</p>
+                            </li>
+                        )
+                    })}        
+                </ul>
+            </div>
         </div>
     )
 }
