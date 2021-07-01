@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 import employeeInfo from "../lib/employeeInfo";
 import { grossIncome } from "../lib/grossIncomeCalculation";
@@ -8,33 +8,61 @@ import { incomeTaxCalc } from "../lib/incomeTaxCalculation";
 // of the payslip. A grid seems to be the right choice as it
 // offers responsive design options
 
-const PayslipTable = () => {
+const PayslipTable = (props) => {
 
     // TODO: Function that takes selected employee as argument
     // checks for employee within array of object and outputs result
     // grossIncome()
 
-    
+    const handleCalculate = () => {
+        
+        // check if first name in state matches an employee
+        employeeInfo.forEach((element) => {
+            if(element.firstName === props.name){
+                const taxBrackets = [
+                    {min: 0, max: 18200, rate: 1, fee: 0},
+                    {min: 18201, max: 37000, rate: 0.19, fee: 0},
+                    {min: 37001, max: 80000, rate: 0.325, fee: 3572},
+                    {min: 180000, max: 99999999, rate: 0.45, fee: 54547}
+                ]; // taxBrackets[]
+
+                const salary = element.annualSalary
+                props.setSalary(salary)
+                let taxToPay
+
+                for(let bracket of taxBrackets) {
+                    if(salary < bracket.max) {
+                        console.log(bracket);
+                        let taxToPay = ((salary - bracket.min)*bracket.rate) + bracket.fee;
+        
+                        // rounds up value
+                        taxToPay = Math.ceil(taxToPay/12)
+                        props.setIncomeTax(taxToPay);
+                        console.log('*****************************');
+                        console.log(`${props.name}'s income tax balance is $${taxToPay}`);
+                        console.log('-----------------------------');
+                        break;
+        
+                        // otherwise it adds to a running total of 
+                        // marginal tax
+                    } else {
+                        console.log(bracket);
+                        taxToPay += ((bracket.max - bracket.min)*bracket.rate) + bracket.fee;
+                        console.log(`Running Total: ${taxToPay}`);
+                    }
+                } // for...of taxBrackets
+            } // conditional - employee name
+        }) // forEach employeeInfo
+    } // handleCalculate()
 
     return(
         <div>
             <div id="outer-table">
-                <ul className="invoice-list">
-                    {employeeInfo.map((user) => {
-                        return (    
-                            <li key = {user.id}className="invoice-list-details">
-                                <p>First Name: {user.firstName}</p>
-                                <p>Last Name: {user.lastName}</p>
-                                <p>Payment Period From: {user.paymentStartDate}</p>
-                                <p>Payment Period To: {user.paymentEndDate}</p>
-                                <p>Annual Salary: ${user.annualSalary}</p>
-                                <p>Gross Income: ${user.grossIncome}</p>
-                                <p>Income Tax: ${user.incomeTax}</p>
-
-                            </li>
-                        )
-                    })}        
-                </ul>
+                <h3>Monthly Payslip Breakdown</h3>
+                <p>Annual Salary: ${props.salary}</p>
+                <p>Income Tax: ${props.incomeTax}</p>
+                
+                <button onClick={handleCalculate}>Calculate Payslip</button>
             </div>
         </div>
     )

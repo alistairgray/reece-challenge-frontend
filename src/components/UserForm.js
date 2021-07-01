@@ -1,19 +1,26 @@
 import React from 'react';
 
+import employeeInfo from '../lib/employeeInfo';
+
 export function UserForm (props) {
 
-    const handleSelectEmployee = (name) => {
-       props.setName(name)
+    const handleSelectEmployee = (ev) => {
+       props.setName(ev.target.value)
     }
     
     return(
         <div>
             <div>
                 <h2>Select Employee</h2>
-                <div id="dropdown-list">
-                    <button onClick={(() => {handleSelectEmployee('David')})}className="dropdown-list-item">David</button>
-                    <button onClick={(() => {handleSelectEmployee('Ryan')})}className="dropdown-list-item">Ryan</button>
-                </div>
+                <select onChange={handleSelectEmployee} 
+                id="dropdown-list">
+                    {employeeInfo.map((user) => {
+                        return (
+                    <option key={user.id} value={user.firstname}>{user.firstName}</option>
+                        )})
+                }
+                </select>
+            
             </div>
         </div>
     )

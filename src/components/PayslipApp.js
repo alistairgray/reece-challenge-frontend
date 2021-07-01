@@ -1,16 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import PayslipTable from './PayslipTable';
 import { UserForm } from './UserForm';
 
 import '../styles/styles.css';
 
-import employeeInfo from '../lib/employeeInfo';
-import { grossIncome } from '../lib/grossIncomeCalculation';
-import { incomeTaxCalc } from '../lib/incomeTaxCalculation';
-
 const PayslipApp = () => {
 
     const [name, setName] = useState('');
+    const [salary, setSalary] = useState(0);
     const [incomeTax, setIncomeTax] = useState(0);
     const [grossIncome, setGrossIncome] = useState(0);
 
@@ -19,7 +16,7 @@ const PayslipApp = () => {
             <h1>{name} Payslip</h1>
             <div className="content-wrap">
                 <UserForm setName={setName}/>
-                <PayslipTable />
+                <PayslipTable name={name} salary={salary} setSalary={setSalary} incomeTax={incomeTax} setIncomeTax={setIncomeTax} setGrossIncome={setGrossIncome}/>
             </div>
         </div>
     )
