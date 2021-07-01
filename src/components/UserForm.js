@@ -1,20 +1,20 @@
 import React from 'react';
 
-export function UserForm () {
+export function UserForm (props) {
 
-    // const handleSelectEmployee = (name) => {
-    //     setName(name)
-    // }
+    const handleSelectEmployee = (name) => {
+       props.setName(name)
+    }
     
     return(
         <div>
-            <form>
+            <div>
                 <h2>Select Employee</h2>
                 <div id="dropdown-list">
-                    <button className="dropdown-list-item">David</button>
-                    <button className="dropdown-list-item">Ryan</button>
+                    <button onClick={(() => {handleSelectEmployee('David')})}className="dropdown-list-item">David</button>
+                    <button onClick={(() => {handleSelectEmployee('Ryan')})}className="dropdown-list-item">Ryan</button>
                 </div>
-            </form>
+            </div>
         </div>
     )
 }

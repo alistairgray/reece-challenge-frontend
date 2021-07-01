@@ -14,10 +14,7 @@ const PayslipTable = () => {
     // checks for employee within array of object and outputs result
     // grossIncome()
 
-    useEffect(() => {
-        grossIncome(employeeInfo);
-        incomeTaxCalc(employeeInfo);
-    })
+    
 
     return(
         <div>

@@ -10,8 +10,9 @@ import { incomeTaxCalc } from '../lib/incomeTaxCalculation';
 
 const PayslipApp = () => {
 
-    const [name, setName] = useState();
-
+    const [name, setName] = useState('');
+    const [incomeTax, setIncomeTax] = useState(0);
+    const [grossIncome, setGrossIncome] = useState(0);
 
     return(
         <div id="main">
