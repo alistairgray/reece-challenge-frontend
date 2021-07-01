@@ -1,6 +1,6 @@
 import employeeInfo from "./employeeInfo";
 
-function incomeTaxCalc(input){
+export function incomeTaxCalc(input){
     
     const data = input
 
@@ -13,7 +13,7 @@ function incomeTaxCalc(input){
         {min: 180000, max: 99999999, rate: 0.45, fee: 54547}
     ]; // taxBrackets[]
 
-    data.forEach(({firstName:name, annualSalary:salary}) => {
+    data.forEach(({firstName:name, annualSalary:salary, incomeTax:incomeTax}) => {
 
         let taxToPay = 0
 
@@ -33,6 +33,7 @@ function incomeTaxCalc(input){
 
                 // rounds up value
                 taxToPay = Math.ceil(taxToPay)/12
+                incomeTax = taxToPay
                 console.log('*****************************');
                 console.log(`${name}'s income tax balance is $${taxToPay}`);
                 console.log('-----------------------------');

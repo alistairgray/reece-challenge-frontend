@@ -6,11 +6,11 @@ import PayslipApp from '../PayslipApp';
 
 describe('Document Testing', () => {
 
-    test('should render PayslipTest component', () => {
+    test('should render PayslipTable component', () => {
         render(<PayslipTable />);
         const PayslipTableElement = screen.getAllByTestId('PayslipTable');
         expect(PayslipTableElement).toBeInTheDocument();
-    })
+    }) // render the PayslipTable component
 
     test('render the h1 of PayslipApp', () => {
         const {getByText} = render(<PayslipApp />);
@@ -18,4 +18,4 @@ describe('Document Testing', () => {
         expect(linkElement).toBeInTheDocument();
     }); // render the title of app
 
-});
+}); // document testing
