@@ -1,7 +1,4 @@
-export function calculate (input) {
-
-    // check if first name in state matches an employee
-    input.forEach((employee) => {
+export function calculate (employee) {
         
             const taxBrackets = [
                 {min: 0, max: 18200, rate: 1, fee: 0},
@@ -14,7 +11,7 @@ export function calculate (input) {
             const grossIncome = Math.floor(salary/12);
             const superannuation = employee.super;
 
-            let taxToPay
+            let taxToPay = 0;
 
             for(let bracket of taxBrackets) {
                 if(salary < bracket.max) {
@@ -35,8 +32,7 @@ export function calculate (input) {
                 } else {
                     console.log(bracket);
                     taxToPay += ((bracket.max - bracket.min)*bracket.rate) + bracket.fee;
-                    console.log(`Running Total: ${taxToPay}`);
+                    console.log(taxToPay);
                 }
             } // for...of taxBrackets
-    }) // forEach employeeInfo
-}
+} // calculate()

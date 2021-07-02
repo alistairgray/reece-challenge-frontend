@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import employeeInfo from "../lib/employeeInfo";
 import { calculate } from "../lib/calculations";
 
@@ -13,15 +13,15 @@ const PayslipTable = (props) => {
     // grossIncome()
 
     const handleCalculate = () => {
-        calculate(employeeInfo)
-        $('#employee-details').append(
-            <li>
-                <p>Gross Income: {props.grossIncome}</p>
-                <p>Income Tax: {props.incomeTax}</p>
-                <p>Net Income: {props.netIncome}</p>
-            </li>
-        )
+        
     } // handleCalculate()
+
+    const [employees, setEmployees] = useState([]);
+
+    useEffect(() => {
+        const employeesWithTax = props.employees.map(calculate);
+        setEmployees(employeesWithTax)
+    }, []);
 
     return(
         <div>
@@ -35,7 +35,10 @@ const PayslipTable = (props) => {
                                 First Name: {data.firstName}, 
                                 Last Name: {data.lastName}, 
                                 Annual Salary: {data.annualSalary},
-                                Superannuation: {data.super*100}%
+                                Superannuation: {data.super*100}%,
+                                Gross Income: {props.grossIncome},
+                                Income Tax: {props.incomeTax},
+                                Net Income: {props.netIncome}
                             </li>
                         )
                     })}
