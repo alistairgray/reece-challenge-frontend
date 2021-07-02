@@ -54,6 +54,7 @@ h1, h2, h3 {
 }
 
 /* ----------------------------- */
+/* Payslip Table */
 
 .invoice-list-details {
     border: 1px solid black;
@@ -61,3 +62,7 @@ h1, h2, h3 {
     text-align: center;
     margin: 15px;
 }
+
+/* ----------------------------- */
+/* UserForm */
+

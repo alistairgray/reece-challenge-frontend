@@ -14,11 +14,6 @@ const employeeInfo = [
         lastName: 'Rudd', 
         annualSalary: 60050, 
         super: 0.09,
-        paymentStartDate: '2020:03:01',
-        paymentEndDate: '2020:03:31',
-        grossIncome: 0,
-        incomeTax: 0,
-        netIncome: 0
     },
     {
         id: 258612,
@@ -26,11 +21,6 @@ const employeeInfo = [
         lastName: 'Chen', 
         annualSalary: 120000, 
         super: 0.10,
-        paymentStartDate: '2020:03:01',
-        paymentEndDate: '2020:03:01',
-        grossIncome: 0,
-        incomeTax: 0,
-        netIncome: 0
     }
 ] // employeeInfo[]
 

@@ -1,29 +1,49 @@
-import React from 'react';
-
-import employeeInfo from '../lib/employeeInfo';
+import React, {useState} from 'react';
 
 export function UserForm (props) {
 
-    const handleSelectEmployee = (ev) => {
-       props.setName(ev.target.value)
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [annualSalary, setAnnualSalary] = useState('');
+    const [superannuation, setSuperannuation] = useState('');
+
+    const handleSubmit = (ev) => {
+        ev.preventDefault();
+
+        const newEmployee = {
+            id: Math.random(10000),
+            firstName: firstName,
+            lastName: lastName,
+            annualSalary: annualSalary,
+            superannuation: (superannuation/100)
+        }
+
+        props.setEmployees(...props.employees, newEmployee);
     }
     
     return(
         <div>
-            <div>
-                <h2 id="h2-toggle-default-on">Select Employee</h2>
-                <h2 id="h2-toggle-default-off">{props.name}'s</h2>
-                <select onChange={handleSelectEmployee} 
-                id="dropdown-list">
-                    <option selected>Choose</option>
-                    {employeeInfo.map((user) => {
-                        return (
-                    <option key={user.id} value={user.firstname}>{user.firstName}</option>
-                        )})
-                    }
-                </select>
-            
-            </div>
+            <form onSubmit={handleSubmit}>
+                <h3>Add a New Employee</h3>
+                <label>First Name <br />
+                    <input  type="text" value={firstName} onChange={ev => setFirstName(ev.target.value)}/>
+                </label>
+                <br />
+                <label>Last Name <br />
+                    <input type="text" value={lastName} onChange={ev => setLastName(ev.target.value)} />
+                </label>
+                <br />
+                <label>Annual Salary <br />
+                <input type="number" value={annualSalary} onChange={ev => setAnnualSalary(ev.target.value)} />
+                </label>
+                <br />
+                <label>Superannuation <br />
+                <input type="number" value={superannuation} onChange={ev => setSuperannuation(ev.target.value)} />
+                </label>
+                <br />
+                <br />
+                <input type="submit" value="submit" />
+            </form>
         </div>
     )
 }
