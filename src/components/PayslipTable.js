@@ -1,5 +1,6 @@
 import React from "react";
 
+import { CSVLink} from "react-csv";
 
 // My desire is for a table structure to show the values
 // of the payslip. A grid seems to be the right choice as it
@@ -7,9 +8,32 @@ import React from "react";
 
 const PayslipTable = (props) => {
 
-    // TODO: Function that takes selected employee as argument
-    // checks for employee within array of object and outputs result
-    // grossIncome()
+
+    const employeeData = props.employees.map( (emp) => {
+        return(
+        emp.id,
+        emp.firstName,
+        emp.lastName,
+        emp.annualSalary,
+        emp.superannuation,
+        emp.grossIncome,
+        emp.incomeTax,
+        emp.netIncome
+        )
+        
+    });
+
+    const csvData = [
+        ["employeeID",
+        "firstname",
+        "lastname",
+        "annualsalary",
+        "superannuation",
+        "monthlygrossincome",
+        "monthlyincometax",
+        "monthlynetincome"],
+        [employeeData]
+    ];
 
     return(
         <div>
@@ -46,6 +70,9 @@ const PayslipTable = (props) => {
                 <br />
                 {/* <button>Calculate Payslip</button> */}
             </div>
+
+            
+            <CSVLink data={csvData}>Download Table</CSVLink>
         </div>
     )
 }
