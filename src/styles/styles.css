@@ -64,5 +64,22 @@ h1, h2, h3 {
 }
 
 /* ----------------------------- */
+/* PayslipTable */
+/* #outer-table {
+
+} */
+
+.employee-details {
+    border: solid 1px black;
+    padding: 5px;
+    margin: 15px;
+}
+
+th, td {
+    border: solid 1px black;
+    padding: 5px;
+}
+
+/* ----------------------------- */
 /* UserForm */
 

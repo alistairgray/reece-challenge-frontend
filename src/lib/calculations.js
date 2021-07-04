@@ -21,6 +21,7 @@ export function calculate (employee) {
                     taxToPay = Math.ceil(taxToPay/12)
                     const incomeTax = taxToPay
                     const netIncome = grossIncome - incomeTax
+                    console.log(employee)
                     employee.incomeTax = incomeTax
                     employee.grossIncome = grossIncome
                     employee.netIncome = netIncome
@@ -35,4 +36,5 @@ export function calculate (employee) {
                     console.log(taxToPay);
                 }
             } // for...of taxBrackets
+    return employee
 } // calculate()

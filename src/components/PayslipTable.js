@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import employeeInfo from "../lib/employeeInfo";
 import { calculate } from "../lib/calculations";
 
 // My desire is for a table structure to show the values
@@ -27,22 +26,35 @@ const PayslipTable = (props) => {
         <div>
             <div id="outer-table">
                 <h3>Monthly Payslip Breakdown</h3>
-                <ul>
-                    {employeeInfo.map((data) => {
+                <table>
+                    {employees.map((emp) => {
                         return(
-                            <li id="employee-details" key={data.id}>
-                                EmployeeID: {data.id},
-                                First Name: {data.firstName}, 
-                                Last Name: {data.lastName}, 
-                                Annual Salary: {data.annualSalary},
-                                Superannuation: {data.super*100}%,
-                                Gross Income: {props.grossIncome},
-                                Income Tax: {props.incomeTax},
-                                Net Income: {props.netIncome}
-                            </li>
+                            <tr className="employee-details" key={emp.id}>
+                                <tr>
+                                    <th>EmployeeID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Annual Salary ($)</th>
+                                    <th>Superannuation (%)</th>
+                                    <th>Gross Income ($)</th>
+                                    <th>Income Tax ($)</th>
+                                    <th>Net Income ($)</th>
+                                </tr>
+
+                                <tr>
+                                    <td>{emp.id}</td>
+                                    <td>{emp.firstName}</td>
+                                    <td>{emp.lastName}</td>
+                                    <td>{emp.annualSalary}</td>
+                                    <td>{emp.super*100}</td>
+                                    <td>{emp.grossIncome}</td>
+                                    <td>{emp.incomeTax}</td>
+                                    <td>{emp.netIncome}</td>
+                                </tr>
+                            </tr>
                         )
                     })}
-                </ul>
+                </table>
                 
                 <button onClick={handleCalculate}>Calculate Payslip</button>
             </div>
