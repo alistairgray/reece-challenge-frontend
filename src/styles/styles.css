@@ -78,6 +78,7 @@ h1, h2, h3 {
 th, td {
     border: solid 1px black;
     padding: 5px;
+    border-spacing: 15px;
 }
 
 /* ----------------------------- */

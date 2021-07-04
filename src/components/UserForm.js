@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { calculate } from "../lib/calculations";
 
 export function UserForm (props) {
 
@@ -11,14 +12,20 @@ export function UserForm (props) {
         ev.preventDefault();
 
         const newEmployee = {
-            id: Math.random(10000),
+            id: Math.floor(Math.random() * 90000) + 10000,
             firstName: firstName,
             lastName: lastName,
             annualSalary: annualSalary,
             superannuation: (superannuation/100)
         }
 
-        props.setEmployees(...props.employees, newEmployee);
+        const addEmployee = (employee) => {
+            calculate(employee)
+        }
+
+        addEmployee(newEmployee)
+
+        props.setEmployees([...props.employees, newEmployee]);
     }
     
     return(

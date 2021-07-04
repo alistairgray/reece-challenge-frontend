@@ -13,14 +13,14 @@ const employeeInfo = [
         firstName: 'David', 
         lastName: 'Rudd', 
         annualSalary: 60050, 
-        super: 0.09,
+        superannuation: 0.09,
     },
     {
         id: 258612,
         firstName: 'Ryan', 
         lastName: 'Chen', 
         annualSalary: 120000, 
-        super: 0.10,
+        superannuation: 0.10,
     }
 ] // employeeInfo[]
 

@@ -9,7 +9,7 @@ export function calculate (employee) {
 
             const salary = employee.annualSalary;
             const grossIncome = Math.floor(salary/12);
-            const superannuation = employee.super;
+            const superannuation = employee.superannuation;
 
             let taxToPay = 0;
 
@@ -18,13 +18,14 @@ export function calculate (employee) {
                     let taxToPay = ((salary - bracket.min)*bracket.rate) + bracket.fee;
 
                     // rounds up value
-                    taxToPay = Math.ceil(taxToPay/12)
-                    const incomeTax = taxToPay
-                    const netIncome = grossIncome - incomeTax
-                    console.log(employee)
-                    employee.incomeTax = incomeTax
-                    employee.grossIncome = grossIncome
-                    employee.netIncome = netIncome
+                    taxToPay = Math.ceil(taxToPay/12);
+                    const incomeTax = taxToPay;
+                    const netIncome = grossIncome - incomeTax;
+                    console.log(employee);
+                    employee.incomeTax = incomeTax;
+                    employee.grossIncome = grossIncome;
+                    employee.netIncome = netIncome;
+                    employee.superannuation = superannuation;
 
                     break;
 

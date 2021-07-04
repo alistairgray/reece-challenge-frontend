@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { calculate } from "../lib/calculations";
+import React from "react";
+
 
 // My desire is for a table structure to show the values
 // of the payslip. A grid seems to be the right choice as it
@@ -11,23 +11,12 @@ const PayslipTable = (props) => {
     // checks for employee within array of object and outputs result
     // grossIncome()
 
-    const handleCalculate = () => {
-        
-    } // handleCalculate()
-
-    const [employees, setEmployees] = useState([]);
-
-    useEffect(() => {
-        const employeesWithTax = props.employees.map(calculate);
-        setEmployees(employeesWithTax)
-    }, []);
-
     return(
         <div>
             <div id="outer-table">
                 <h3>Monthly Payslip Breakdown</h3>
                 <table>
-                    {employees.map((emp) => {
+                    {props.employees.map((emp) => {
                         return(
                             <tr className="employee-details" key={emp.id}>
                                 <tr>
@@ -36,9 +25,9 @@ const PayslipTable = (props) => {
                                     <th>Last Name</th>
                                     <th>Annual Salary ($)</th>
                                     <th>Superannuation (%)</th>
-                                    <th>Gross Income ($)</th>
-                                    <th>Income Tax ($)</th>
-                                    <th>Net Income ($)</th>
+                                    <th>Monthly Gross Income ($)</th>
+                                    <th>Monthly Income Tax ($)</th>
+                                    <th>Monthly Net Income ($)</th>
                                 </tr>
 
                                 <tr>
@@ -55,8 +44,8 @@ const PayslipTable = (props) => {
                         )
                     })}
                 </table>
-                
-                <button onClick={handleCalculate}>Calculate Payslip</button>
+                <br />
+                {/* <button>Calculate Payslip</button> */}
             </div>
         </div>
     )
