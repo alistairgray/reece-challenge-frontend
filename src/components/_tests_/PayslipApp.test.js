@@ -19,6 +19,7 @@ describe('PayslipApp', () => {
     test('it should render the child component, PayslipTable', () =>{
         render(<PayslipApp />)
         const element = screen.getByText('Monthly Payslip Breakdown')
+        expect(element).toBeTruthy();
     });
 })
 
