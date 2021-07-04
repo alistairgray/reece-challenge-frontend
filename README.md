@@ -1,10 +1,40 @@
-# Getting Started with Create React App
+# Code Challenge - Employee Payslip
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## The Goal
+This was to design a script that would take in employee details as an argument and output their payment details, including superannuation, gross income, income tax and net income. 
 
-In the project directory, you can run:
+Once I perfected the script, I decided to try and showcase a greater understanding of React. My portfolio is still in its early stages and this challenge provided a great way to both illustrate my skills whilst pushing myself in areas that are still new to me.
+
+
+
+## Features
+
+- Visualise employee data including super, taxes and income
+- Add new employees with annual salaries and it will add it to the above table
+
+
+## Challenges/Bugs
+
+Testing is not my forte given the complexity of it. Normally in a development environment, one must create a failing test -> code till it passes -> refactor -> repeat.
+But for my experience, this is still very new, not just from a testing perspective but also because React hooks is also new to me. My course was biased towards Classes and so a modern React project involved: figuring out what I need to do -> code till it works, whilst researching why it doesn't -> research tests and write them as best as I can -> figure out why the tests won't work -> write a passing test -> refactor. 
+
+I was pleased with my understanding of tests that involves Forms in React. This particular code had me stumped but I had help from this website: https://testing-library.com/docs/dom-testing-library/api-events/ , which illustrated a better understanding of the methodology required.
+
+![image](https://user-images.githubusercontent.com/73462489/124377437-40f49f80-dcef-11eb-8241-aabc29b32091.png)
+
+
+
+## Wishlist
+
+- Modify the table to visualise multi month periods
+- Filter by employees or other information
+
+
+## Getting it to work on your device
+
+You'll want to clone this project to your own device and in the project directory, you can run:
 
 ### `npm start`
 
