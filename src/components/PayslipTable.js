@@ -8,20 +8,15 @@ import { CSVLink} from "react-csv";
 
 const PayslipTable = (props) => {
 
+    const employeeCSV = [];
 
-    const employeeData = props.employees.map( (emp) => {
-        return(
-        emp.id,
-        emp.firstName,
-        emp.lastName,
-        emp.annualSalary,
-        emp.superannuation,
-        emp.grossIncome,
-        emp.incomeTax,
-        emp.netIncome
-        )
-        
-    });
+    function csvEmployeeData(){
+        for(let i; i < props.employees; i++){
+            employeeCSV.push(props.employees[i].id)
+            employeeCSV.push(props.employees[i].firstName)
+            console.log(`Employee CSV ${employeeCSV}`);
+        }
+    }
 
     const csvData = [
         ["employeeID",
@@ -32,8 +27,12 @@ const PayslipTable = (props) => {
         "monthlygrossincome",
         "monthlyincometax",
         "monthlynetincome"],
-        [employeeData]
+        []
     ];
+
+    console.log(props.employees);
+
+    
 
     return(
         <div>
