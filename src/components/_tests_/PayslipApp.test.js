@@ -2,6 +2,26 @@ import React from 'react';
 import PayslipApp from '../PayslipApp';
 
 import {render, screen, fireEvent} from '@testing-library/react';
+import { calculate } from '../../lib/calculations';
+
+const testEmployee = {
+  id: 457613,
+  firstName: 'First',
+  lastName: 'Last',
+  annualSalary: 60050,
+  super: 0.09,
+};
+
+const testEmployeeWithTax = {
+  id: 457613,
+  firstName: 'First',
+  lastName: 'Last',
+  annualSalary: 60050,
+  super: 0.09,
+  incomeTax: 922,
+  grossIncome: 5004,
+  netIncome: 4082
+};
 
 describe('Addition', () => {
     it('knows that 2 and 2 make 4', () => {
@@ -22,8 +42,12 @@ describe('PayslipApp', () => {
         expect(element).toBeTruthy();
     });
 
-    // testing the form here since it relies on prop functions from this
-    // component
+    test('the calculate function should equal the correct output', () => {
+      const outputofFunctionRun = calculate(testEmployee);
+      expect(outputofFunctionRun).toEqual(testEmployeeWithTax);
+    })
+
+    // testing the form here since it relies on prop functions from this component
     it('should render the form for adding a new employee', () => {
       render(<PayslipApp />);
       fireEvent.change(screen.getByLabelText(/First Name/i),     { target: { value: 'testFirst' } });
