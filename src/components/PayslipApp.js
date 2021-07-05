@@ -26,10 +26,25 @@ const PayslipApp = () => {
 
         fileReader.readAsText(file);
 
-        fileReader.onLoad = function() {
+        fileReader.onload = function() {
             const dataSet = fileReader.result;
             const result = dataSet.split('\n').map(data => data.split(','));
-            console.log(result);
+            
+            // get the data from result, map over and then setState
+            const newEmployeesWithTax = result.map((empRow) => {
+                let empObj = {}
+                if(empRow[0] != 'Employee ID' || empRow[0] != undefined){
+                     empObj = {
+                        id: empRow[0],
+                        firstName: empRow[1],
+                        lastName: empRow[2],
+                        annualSalary: empRow[3],
+                        superannuation: empRow[4]
+                    }
+                }
+                return calculate(empObj)
+            });
+            setEmployees(newEmployeesWithTax)
         }
     });
 
