@@ -7,12 +7,15 @@ This was to design a script that would take in employee details as an argument a
 
 Once I perfected the script, I decided to try and showcase a greater understanding of React. My portfolio is still in its early stages and this challenge provided a great way to both illustrate my skills whilst pushing myself in areas that are still new to me.
 
+## Assumptions
 
 
 ## Features
 
 - Visualise employee data including super, taxes and income
 - Add new employees with annual salaries and it will add it to the above table
+- Data is automatically calculated to reflect income tax, gross income and net income
+- You can download the payslip table in a csv file format, this includes added employees
 
 
 ## Challenges/Bugs
