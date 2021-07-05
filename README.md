@@ -16,6 +16,7 @@ Once I perfected the script, I decided to try and showcase a greater understandi
 - Add new employees with annual salaries and it will add it to the above table
 - Data is automatically calculated to reflect income tax, gross income and net income
 - You can download the payslip table in a csv file format, this includes added employees
+- You can drag and drop the downloaded csv into the browser and it will replace the table with the data from the csv *NOTE* Must be dropped on top of the table or it will not work correctly
 
 
 ## Challenges/Bugs
