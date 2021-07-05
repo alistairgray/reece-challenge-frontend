@@ -34,11 +34,11 @@ Another assumption was the type of calculation. I used a marginal tax instead of
 Testing is not my forte given the complexity of it. Normally in a development environment, one must create a failing test -> code till it passes -> refactor -> repeat.
 But for my experience, this is still very new, not just from a testing perspective but also because React hooks is also new to me. My course was biased towards Classes and so a modern React project involved: figuring out what I need to do -> code till it works, whilst researching why it doesn't -> research tests and write them as best as I can -> figure out why the tests won't work -> write a passing test -> refactor. 
 
-I was pleased with my understanding of tests that involves Forms in React. This particular code had me stumped but I had help from this website: https://testing-library.com/docs/dom-testing-library/api-events/ , which illustrated a better understanding of the methodology required.
+I was pleased when I was able to get the forms tests to work. This particular code had me stumped but I had help from this website: https://testing-library.com/docs/dom-testing-library/api-events/ , which illustrated a better understanding of the methodology required.
 
 ![image](https://user-images.githubusercontent.com/73462489/124377437-40f49f80-dcef-11eb-8241-aabc29b32091.png)
 
-
+Other challenges were the download and drag/drop options for csv files. I had never done this before but there were examples on stackoverflow which were an immense help. For example simply dragging and dropping a file could produce a new tab but ev.preventDefault() and ev.stopPropagation() proved most helpful in stopping this. Then it was a matter of seeing how the files looked via a console log output and then crafting map functions to go through the data on file drops and a forEach for file downloads.
 
 ## Wishlist
 
