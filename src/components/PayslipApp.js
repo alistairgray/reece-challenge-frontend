@@ -39,8 +39,7 @@ const PayslipApp = () => {
             const result = dataSet.split('\n').map(data => data.split(','));
             // ASSUMPTION: Remove headers as data is expected to contain them.
             result.shift();
-            // Remove undefined / empty data
-            result.pop();
+            
             
             // get the data from result, map over and then setState
             const newEmployeesWithTax = result.map((empRow) => {

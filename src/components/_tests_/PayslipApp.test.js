@@ -9,19 +9,40 @@ const testEmployee = {
   firstName: 'First',
   lastName: 'Last',
   annualSalary: 60050,
-  super: 0.09,
+  superannuation: 0.09,
 };
+
+const testSecondEmployee = {
+  id: 55555,
+  firstName: 'First',
+  lastName: 'Last',
+  annualSalary: 24500,
+  superannuation: 0.09,
+}
 
 const testEmployeeWithTax = {
   id: 457613,
   firstName: 'First',
   lastName: 'Last',
   annualSalary: 60050,
-  super: 0.09,
+  superannuation: 0.09,
   incomeTax: 922,
   grossIncome: 5004,
   netIncome: 4082
 };
+
+const testSecondEmployeeWithTax = {
+  id: 55555,
+  firstName: 'First',
+  lastName: 'Last',
+  annualSalary: 24500,
+  superannuation: 0.09,
+  incomeTax: 100,
+  grossIncome: 2041,
+  netIncome: 1941
+}
+
+
 
 describe('Addition', () => {
     it('knows that 2 and 2 make 4', () => {
@@ -42,10 +63,15 @@ describe('PayslipApp', () => {
         expect(element).toBeTruthy();
     });
 
-    test('the calculate function should equal the correct output', () => {
+    test('calculate function should determine the correct output of second employee who has salary in 3rd tax bracket', () => {
       const outputofFunctionRun = calculate(testEmployee);
       expect(outputofFunctionRun).toEqual(testEmployeeWithTax);
-    })
+    });
+
+    it('calculate function should determine the correct output of second employee who has salary in 2nd tax bracket', () => {
+      const outputofFunctionRun = calculate(testSecondEmployee);
+      expect(outputofFunctionRun).toEqual(testSecondEmployeeWithTax);
+    });
 
     // testing the form here since it relies on prop functions from this component
     it('should render the form for adding a new employee', () => {

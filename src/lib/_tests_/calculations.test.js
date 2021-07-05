@@ -28,41 +28,6 @@ const taxBrackets = [
 
 describe('Tax Calculation library', () => {
 
-  it('should output correct gross income', () => {
-    const salary = testEmployee.annualSalary
-    const grossIncome = Math.floor(salary/12);
-    expect(grossIncome).toEqual(testEmployeeWithTax.grossIncome);
-  });
-
-  it('should determine annual salary does not fit first tax bracket', () => {
-    const salary = testEmployee.annualSalary
-    let bracketCheck = true;
-    for(let bracket of taxBrackets){
-      if(salary < bracket.max){
-        bracketCheck = false
-      }
-    }
-    expect(bracketCheck).toBe(false)
-  });
-
-  it('should determine that the annual salary fits the third bracket', () => {
-    const salary = testEmployee.annualSalary
-    let bracketCheck = null;
-    let bracketCount = 0;
-    for(let bracket of taxBrackets){
-      if(salary < bracket.max){
-        bracketCheck = true
-        bracketCount ++
-        break
-      } else {
-        bracketCheck = false
-        bracketCount ++
-      }
-    }
-    expect(bracketCount).toBe(3)
-  });
- 
-  
   it('should export the calcuate() function', () => {
     expect(typeof calculate).toBe('function');
   });
