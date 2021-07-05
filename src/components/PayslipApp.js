@@ -10,10 +10,15 @@ const PayslipApp = () => {
 
     const [employees, setEmployees] = useState(employeeInfo);
 
+    // allows for new employee data to be calculated on submit
+
     useEffect(() => {
         const employeesWithTax = employees.map(calculate);
         setEmployees(employeesWithTax)
     }, []);
+
+    // CSV file drop functions. All have their event default prevented
+    // to avoid new tabs opening when files are submitted
 
     const handleFileDrop = (ev => {
         ev.preventDefault();
@@ -21,15 +26,18 @@ const PayslipApp = () => {
 
         console.log('File Dropped!');
 
+        // gets the data and uses FileReader() to 
+        // read the CSV file
         const file = ev.dataTransfer.files[0];
         const fileReader = new FileReader();
 
         fileReader.readAsText(file);
 
+        // Gets the data and splits it by row and then by ","
         fileReader.onload = function() {
             const dataSet = fileReader.result;
             const result = dataSet.split('\n').map(data => data.split(','));
-            // Remove headers
+            // ASSUMPTION: Remove headers as data is expected to contain them.
             result.shift();
             // Remove undefined / empty data
             result.pop();
