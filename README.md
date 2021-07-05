@@ -7,8 +7,18 @@ This was to design a script that would take in employee details as an argument a
 
 Once I perfected the script, I decided to try and showcase a greater understanding of React. My portfolio is still in its early stages and this challenge provided a great way to both illustrate my skills whilst pushing myself in areas that are still new to me.
 
-## Assumptions
+## Assumptions / Thinking
+My initial thoughts were that a foundational level, this is a problem of navigating and interacting with objects.
+The goal will be to initially prove the base requirements via vanilla javascript and
+then make it work in HTML and CSS. 
+The design needs to be a blend between pleasant visuals and function.
+Testing wise, the project will need to be integrated into React via create-react-app, with
+Jest to verify.
+A nice to have would be to have the ability to adjust the payment months.
 
+I have taken the assumption that the user can see all of the payslip data from each employee. Initially I had thought of only showing one employee at a time but I felt it detracted from the app's potential to showcase all the employees and add a filter for each.
+
+Another assumption was the type of calculation. I used a marginal tax instead of a flat tax to reflect how tax is calculated in Australia. This proved more complex but I was able to verify the calculations and integrate it into the app. Personally the logic behind these calculations was the most rewarding as the remainder of the app took a whole lot of research and trial and error! 
 
 ## Features
 
@@ -38,67 +48,10 @@ I was pleased with my understanding of tests that involves Forms in React. This 
 
 ## Getting it to work on your device
 
-You'll want to clone this project to your own device and in the project directory, you can run:
+You'll want to clone this project to your own device and in the project directory, follow these steps:
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clone the repository 
+2. CD to the file directory
+3. enter into your terminal "npm install" which will add the necessary files to the project folders
+4. then "npm start" which will open up your browser automatically, otherwise head to http://localhost:3000 after running the command
+5. You can also run "npm test" where you can see the tests that I have built to check various aspects of the app
