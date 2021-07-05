@@ -27,7 +27,7 @@ describe('PayslipApp', () => {
     it('should render the form for adding a new employee', () => {
       render(<PayslipApp />);
       fireEvent.change(screen.getByLabelText(/First Name/i),     { target: { value: 'testFirst' } });
-      firesEvent.change(screen.getByLabelText(/Last Name/i),      { target: { value: 'testLast'  } });
+      fireEvent.change(screen.getByLabelText(/Last Name/i),      { target: { value: 'testLast'  } });
       fireEvent.change(screen.getByLabelText(/Annual Salary/i),  { target: { value: '120000' } });
       fireEvent.change(screen.getByLabelText(/Superannuation/i), { target: { value: '10'     } });
       fireEvent(

@@ -15,8 +15,42 @@ const PayslipApp = () => {
         setEmployees(employeesWithTax)
     }, []);
 
+    const handleFileDrop = (ev => {
+        ev.preventDefault();
+        ev.stopPropagation();
+
+        console.log('File Dropped!');
+
+        const file = ev.dataTransfer.files[0];
+        const fileReader = new FileReader();
+
+        fileReader.readAsText(file);
+
+        fileReader.onLoad = function() {
+            const dataSet = fileReader.result;
+            const result = dataSet.split('\n').map(data => data.split(','));
+            console.log(result);
+        }
+    });
+
+    const handleDragEnter = (ev => {
+        ev.preventDefault();
+        ev.stopPropagation();
+    });
+
+    const handleDragLeave = (ev => {
+        ev.preventDefault();
+        ev.stopPropagation();
+    });
+
+    const handleDragOver = (ev => {
+        ev.preventDefault();
+        ev.stopPropagation();
+    });
+
     return(
-        <div id="main">
+        <div id="main" onDrop={handleFileDrop} onDragEnter={handleDragEnter} onDragLeave={handleDragLeave} onDragOver={handleDragOver}>
+
             <h1>Employee Payslips</h1>
             <div className="content-wrap">
                 <PayslipTable employees={employees}/>

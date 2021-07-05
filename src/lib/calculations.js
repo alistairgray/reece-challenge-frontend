@@ -21,7 +21,6 @@ export function calculate (employee) {
                     taxToPay = Math.ceil(taxToPay/12);
                     const incomeTax = taxToPay;
                     const netIncome = grossIncome - incomeTax;
-                    console.log(employee);
                     employee.incomeTax = incomeTax;
                     employee.grossIncome = grossIncome;
                     employee.netIncome = netIncome;
@@ -32,9 +31,7 @@ export function calculate (employee) {
                     // otherwise it adds to a running total of 
                     // marginal tax
                 } else {
-                    console.log(bracket);
                     taxToPay += ((bracket.max - bracket.min)*bracket.rate) + bracket.fee;
-                    console.log(taxToPay);
                 }
             } // for...of taxBrackets
     return employee

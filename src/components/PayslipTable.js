@@ -10,7 +10,6 @@ const PayslipTable = (props) => {
 
     // ASSUMPTION: employee object keys are always created in the expected order, since Object.values() returns them in that order; this is fine because we create the object ourselves
 
-    console.log(props.employees);
 
     useEffect(() => {
         let employeeData = "data:text/csv;charset=utf-8, Employee ID, First Name, Last Name, Annual Salary,Superannuation,Monthly Gross Income,Monthly Income Tax,Monthly Net Income\r\n"
@@ -18,7 +17,6 @@ const PayslipTable = (props) => {
         props.employees.forEach((emp) => {
             employeeData += Object.values(emp).join(',') +'\r\n'
         })
-        console.log(employeeData);
         setCSVDownloadData(employeeData)
     })
 
