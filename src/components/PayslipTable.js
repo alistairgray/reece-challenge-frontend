@@ -1,6 +1,4 @@
-import React from "react";
-
-import { CSVLink} from "react-csv";
+import React, { useEffect, useState } from "react";
 
 // My desire is for a table structure to show the values
 // of the payslip. A grid seems to be the right choice as it
@@ -8,31 +6,21 @@ import { CSVLink} from "react-csv";
 
 const PayslipTable = (props) => {
 
-    const employeeCSV = [];
+    const [cSVDownloadData, setCSVDownloadData] = useState()
 
-    function csvEmployeeData(){
-        for(let i; i < props.employees; i++){
-            employeeCSV.push(props.employees[i].id)
-            employeeCSV.push(props.employees[i].firstName)
-            console.log(`Employee CSV ${employeeCSV}`);
-        }
-    }
-
-    const csvData = [
-        ["employeeID",
-        "firstname",
-        "lastname",
-        "annualsalary",
-        "superannuation",
-        "monthlygrossincome",
-        "monthlyincometax",
-        "monthlynetincome"],
-        []
-    ];
+    // ASSUMPTION: employee object keys are always created in the expected order, since Object.values() returns them in that order; this is fine because we create the object ourselves
 
     console.log(props.employees);
 
-    
+    useEffect(() => {
+        let employeeData = "data:text/csv;charset=utf-8, Employee ID, First Name, Last Name, Annual Salary,Superannuation,Monthly Gross Income,Monthly Income Tax,Monthly Net Income\r\n"
+
+        props.employees.forEach((emp) => {
+            employeeData += Object.values(emp).join(',') +'\r\n'
+        })
+        console.log(employeeData);
+        setCSVDownloadData(employeeData)
+    })
 
     return(
         <div>
@@ -69,9 +57,7 @@ const PayslipTable = (props) => {
                 <br />
                 {/* <button>Calculate Payslip</button> */}
             </div>
-
-            
-            <CSVLink data={csvData}>Download Table</CSVLink>
+            <a href={cSVDownloadData} download="employeepayslips.csv">Download Table</a>
         </div>
     )
 }
